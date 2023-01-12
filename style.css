@@ -1,0 +1,239 @@
+
+:root {
+    --blue-background: #C2E9F6;
+    --blue-border: #72cce3;
+    --blue-color: #96dcee;
+    --yellow-background: #fffaa8;
+    --yellow-border: #f5eb71;
+    /** dark side **/
+    --indigo-background: #808fc7;
+    --indigo-border: #5d6baa;
+    --indigo-color: #6b7abb;
+    --gray-border: #e8e8ea;
+    --gray-dots: #e8e8ea;
+    --white: #fff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    display: grid;
+    min-height: 100vh;
+    position: relative;
+  }
+  .background {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--blue-background);
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 250ms ease-in;
+  }
+  
+  .toggle--checkbox {
+    display: none;
+  }
+  .toggle--checkbox:checked {
+  
+  }
+  .toggle--checkbox:checked ~ .background {
+    background: var(--indigo-background);
+  }
+  .toggle--checkbox:checked + .toggle--label {
+    background: var(--indigo-color);
+    border-color: var(--indigo-border);
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background {
+    left: 60px;
+    width: 5px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:before {
+    width: 5px;
+    height: 5px;
+    top: -25px;
+  }
+  .toggle--checkbox:checked + .toggle--label .toggle--label-background:after {
+    width: 5px;
+    height: 5px;
+    left: -30px;
+    top: 20px;
+  }
+  .toggle--checkbox:checked + .toggle--label:before {
+    background: var(--white);
+    border-color: var(--gray-border);
+    animation-name: switch;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+  }
+  .toggle--checkbox:checked + .toggle--label:after {
+    transition-delay: 350ms;
+    opacity: 1;
+  }
+  .toggle--label {
+    /** Placeholder element, starting at blue **/
+    width: 130px;
+    height: 50px;
+    background: var(--blue-color);
+    border-radius: 100px;
+    border: 5px solid var(--blue-border);
+    display: flex;
+    position: relative;
+    transition: all 350ms ease-in;
+  }
+  .toggle--label-background {
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+    position: relative;
+    background: var(--white);
+    left: 95px;
+    top: 25px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--white);
+    left: -10px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label-background:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 40px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--white);
+    left: -10px;
+    transition: all 150ms ease-in;
+  }
+  .toggle--label:before {
+    animation-name: reverse;
+    animation-duration: 350ms;
+    animation-fill-mode: forwards;
+    transition: all 350ms ease-in;
+    content: "";
+    width:32px;
+    height: 32px;
+    border: 5px solid var(--yellow-border);
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    border-radius: 82px;
+    background: var(--yellow-background);
+  }
+  .toggle--label:after {
+    transition-delay: 0ms;
+    transition: all 250ms ease-in;
+    position: absolute;
+    content: "";
+    box-shadow: var(--gray-dots) -13px 0 0 2px, var(--gray-dots) -24px 14px 0 -2px;
+    left: 33px;
+    top: 23px;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  @keyframes switch {
+    0% {
+      left: 4px;
+    }
+    60% {
+      left: 4px;
+      width: 42px;
+    }
+    100% {
+      left: 70px;
+      width: 42px;
+    }
+  }
+  @keyframes reverse {
+    0% {
+      left: 50px;
+      width: 82px;
+    }
+    60% {
+      left: 72px;
+      width: 12px;
+    }
+    100% {
+      left: 4px;
+    }
+  }
+
+
+
+a{
+    display: inline-block;
+    padding-left: 6em;
+}
+a{
+    color: black;
+    padding-left: 3px;
+    text-decoration: none;
+    font-family:  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    border: 5px;
+    margin-left: 4px;
+    border-radius: 10px;
+    border-color: rgb(179, 180, 180);
+    border-style: groove;
+    background-color: rgb(179, 180, 180);
+    text-align: center;
+}
+a:hover{
+background-color: brown;
+border-color: brown;
+color: wheat;
+}
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  height: 5%;
+}
+.welcom{   
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.bar{
+    display: flex;
+    justify-content: center;
+    margin-left: 4px;
+}
+
+.option{
+border-radius: 5px;
+border: 2px solid black;
+}
+button{
+    border-radius: 5px;
+    border: black 2px solid;
+}
+input{
+    border-radius: 5px;
+    border: 2px black solid;
+}
+.tab{
+  display: flex;
+  justify-items: space-between;
+}
+.pictures{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+}
